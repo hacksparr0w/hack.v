@@ -42,13 +42,16 @@ def	build_and_run_verilog_test_files(paths):
 	vvp_paths = []
 
 	for path in paths:
-		print(f"[+] Building '{path}''")
+		print(f"[+] Building '{path}'")
 
+		vvp_path = None
 		try:
-			build_verilog_file(path)
+			vvp_path = build_verilog_file(path)
 		except Exception:
 			print(f"[-] An error occurred while building '{path}'")
 			return
+
+		vvp_paths.append(vvp_path)
 
 	for path in vvp_paths:
 		print(f"[+] Running '{path}'")
