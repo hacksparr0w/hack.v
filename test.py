@@ -71,12 +71,12 @@ def main():
 		path = args[0]
 
 		if not os.path.isfile(path):
-			print(f"'{path}' is not a file.")
+			print(f"[-] '{path}' is not a file.")
 			return
 
 		build_and_run_verilog_test_files([path])
 	else:
-		print("Invalid number of arguments supplied.")
+		print("[-] Invalid number of arguments supplied.")
 
 
 if __name__ == "__main__":
