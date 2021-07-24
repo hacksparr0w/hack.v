@@ -1,12 +1,12 @@
-`ifndef dflipflop
-  `include "src/dflipflop.v"
+`ifndef dff
+  `include "src/dff.v"
 `endif
 
-module dflipflop_test;
+module dff_test;
   reg in, clk;
   wire out;
 
-  dflipflop u (in, clk, out);
+  dff u (in, clk, out);
 
   initial begin
     clk <= 0;
