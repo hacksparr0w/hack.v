@@ -1,23 +1,23 @@
-`ifndef ram64
-  `include "src/ram64.v"
+`ifndef ram512
+  `include "src/ram512.v"
 `endif
 
-module ram64_test;
+module ram512_test;
   reg [15:0] in;
-  reg [5:0] address;
+  reg [8:0] address;
   reg load, clk;
   wire [15:0] out;
 
-  ram64 u (in, address, load, clk, out);
+  ram512 u (in, address, load, clk, out);
 
   generate
     genvar i;
 
-    for (i = 0; i <= 7'b0111111; i = i + 1) begin
+    for (i = 0; i <= 10'b0111111111; i = i + 1) begin
       initial begin
         #(i * 9);
         in <= i;
-        address <= i[5:0];
+        address <= i[8:0];
         load <= 1;
         clk <= 0;
 

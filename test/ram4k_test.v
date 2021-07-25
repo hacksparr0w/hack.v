@@ -1,23 +1,23 @@
-`ifndef ram64
-  `include "src/ram64.v"
+`ifndef ram4k
+  `include "src/ram4k.v"
 `endif
 
-module ram64_test;
+module ram4k_test;
   reg [15:0] in;
-  reg [5:0] address;
+  reg [11:0] address;
   reg load, clk;
   wire [15:0] out;
 
-  ram64 u (in, address, load, clk, out);
+  ram4k u (in, address, load, clk, out);
 
   generate
     genvar i;
 
-    for (i = 0; i <= 7'b0111111; i = i + 1) begin
+    for (i = 0; i <= 13'b0111111111111; i = i + 1) begin
       initial begin
         #(i * 9);
         in <= i;
-        address <= i[5:0];
+        address <= i[11:0];
         load <= 1;
         clk <= 0;
 
